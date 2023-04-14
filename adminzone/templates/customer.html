@@ -1,0 +1,30 @@
+{% extends "adminparent.html" %}
+{% block body %}
+<h1 style="color:blue;text-align:center;">Manage Customer</h1>
+<table style="width:90%;margin:0 auto;" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Contact No</th>
+        <th>Email Address</th>
+        <th>Registration Date</th>
+        <th>Delete</th>
+    </tr>
+    {% for c in cust  %}
+    <tr>
+        <td>{{c.name}}</td>
+        <td>{{c.gender}}</td>
+        <td>{{c.address}}</td>
+        <td>{{c.age}}</td>
+        <td>{{c.contactno}}</td>
+        <td>{{c.emailaddress}}</td>
+        <td>{{c.regdate}}</td>
+        <td>
+            <a href="{% url 'adminzone:deletecustomer' eid=c.emailaddress %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock body %}

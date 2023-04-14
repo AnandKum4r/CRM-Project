@@ -1,0 +1,30 @@
+{% extends "adminparent.html" %}
+{% block body %}
+<h1 style="color:blue;text-align:center;">Manage Complain</h1>
+<table style="width:90%;margin:0 auto" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No</th>
+        <th>Email Address</th>
+        <th>Complain</th>
+        <th>Date</th>
+        <th>Delete</th>
+    </tr>
+    {% for c in comp %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.address}}</td>
+        <td>{{c.contactno}}</td>
+        <td>{{c.emailaddress}}</td>
+        <td>{{c.complaintext}}</td>
+        <td>{{c.complaindate}}</td>
+        <td>
+            <a href="{% url 'adminzone:deletecomplain' id=c.id %}">Delete Complain</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock body %}

@@ -1,0 +1,30 @@
+{% extends "adminparent.html" %}
+{% block body %}
+<h1 style="color:blue;text-align:center;">Manage Feedback</h1>
+<table style="width:90%;margin:0 auto;" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email Address</th>
+        <th>Feedback Text</th>
+        <th>Feedback Date</th>
+        <th>Delete</th>
+    </tr>
+    {% for f in feed %}
+    <tr>
+        <td>{{f.id}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.address}}</td>
+        <td>{{f.contactno}}</td>
+        <td>{{f.emailaddress}}</td>
+        <td>{{f.feedbacktext}}</td>
+        <td>{{f.feedbackdate}}</td>
+        <td>
+            <a href="{% url 'adminzone:deletefeedback' id=f.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock body %}
